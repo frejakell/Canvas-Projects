@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+	<title>Trees</title>
+<style>
+  
+  canvas{
+	
+	background:black;
+	width:100%;
+	
+
+  }
+  .DrawingSpace{
+	left:50%;
+	text-align: center;
+	color:blue;
+  }
+  .settings{
+    width:320px;
+    height:860px;
+    border: 2px solid black;
+	text-align: left;
+	margin-right:10px;
+  }
+  
+  .controller{
+    margin: 0;
+
+  }
+  
+  
+ *{
+   padding:0;
+   box-sizing:border-box;
+ }
+
+.page{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+
+}
+#Hue_scale{
+ background-color: hsl(50, 100%, 50%);
+}
+
+
+#HueRate, #SatRate. #LightRate{
+ height: 20px;
+ width:50px;
+
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  margin-top:10px;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+ 
+</style>
+</head>
+<body>
+<div class="page">
+	<div class="settings">
+		<h2>Control Settings</h2>
+		<div class="controller">
+             Scale slider - Value:<span id="Scale_val"></span><br>
+			 <input type="range" min="1" max="300" value="10" class="slider2" id="myRange"><input type="number" name="points" step="0.05" id="Scale_inc" min="-1" max="100" value="0">
+			 
+			 <br>Number of Particles - Value:<span id="End_val">  </span><br>
+			 <input type="range" min="1" max="300" value="100" class="thereshold" id="EndNumber"><input type="number" name="points" step="0.05" id="Num_inc" min="0.005" max="10" value="1"><br>
+			
+			 <br>Angle Offset - Value:<span id="angle_val">  </span><br> 
+			 <input type="range" id="angle_off" min="0" max="3600" value="20" ><br>
+			 
+			 
+			 <br>Border Width - Value:<span id="Border_val">  </span><br> 
+			 <input type="range" id="Width_stroke" min="0" max="300" value="0" ><br>
+			 
+
+			  
+
+			 Particles Settings:<br>
+		
+			 <label for="Hue">H </label>
+			 <input type="range" id="Hue_scale" min="1" max="360" value="180" ><input type="number" name="points" step="0.05" id="HueRate" min="0" max="360" value="0" ><br>
+			  <label for="Sat">S </label>
+			 <input type="range"  id="Sat_scale" min="1" max="100" value="50" >  <input type="number" name="points" step="0.05" id="SatRate" min="-1" max="100" value="0" ><br>
+			  <label for="Lightness">L</label>
+			 <input type="range" id="Light_scale" min="1" max="100" value="50" > <input type="number" name="points" step="0.05" id="LightRate" min="-1" max="100" value="0" ><br>
+			  <label for="Lightness">A</label>
+			  <input type="range" id="Trans_scale" min="0" max="100" value="100" > <input type="number" name="points" step="0.05" id="TransRate" min="0" max="1" value="1" ><br>
+			 <span id="HSL_val"> hsl(180, 50%, 50%,1 ) </span>
+			 
+			 <p>Stroke Settings:</p>
+			 
+			 <label for="Hue">H </label>
+			 <input type="range" id="Hue_border_scale" min="1" max="360" value="10" ><input type="number" name="points" step="0.05" id="HueBorderRate" min="0" max="360" value="0" ><br>
+			  <label for="Sat">S </label>
+			 <input type="range"  id="Sat_border_scale" min="1" max="100" value="50" >  <input type="number" name="points" step="0.05" id="SatBorderRate" min="-1" max="100" value="0" ><br>
+			  <label for="Lightness">L</label>
+			 <input type="range" id="Light_border_scale" min="1" max="100" value="50" > <input type="number" name="points" step="0.05" id="LightBorderRate" min="-1" max="100" value="0" ><br>
+			  <label for="Lightness">A</label>
+			  <input type="range" id="Trans_border_scale" min="0" max="100" value="100" > <input type="number" name="points" step="0.05" id="TransBorderRate" min="0" max="1" value="1" ><br>
+			 <span id="HSL_border_val"> hsl(180, 50%, 50%,1 ) </span> <br>
+			
+
+    
+			<br>
+			  <label for="Shape_pick">Shape:</label>
+
+				<select name="shapes" id="Shape_pick">
+				  <option value="Circle">Circle</option>
+				  <option value="Square">Square</option>
+				  <option value="VLine">V.Line</option>
+				  <option value="HLine">H.Line</option>
+				  <option value="Cross">Cross</option>
+				  <option value="Arrow">Arrow</option>
+					
+				</select>
+			 <br> Randomize Checked
+             <label class="switch"> 
+		     <input type="checkbox" id="random">
+			 <span class="slider round"></span></label><br>
+			 
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> Scale</label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> Scale increment </label><br>
+			
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> Count </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> Count increment </label><br>
+			
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> Angle </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> Angle increment </label><br>
+			
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> Border width </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> Border width Inc </label><br>
+			
+			
+			<label for="vehicle1"> Fill Color: </label> <br>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> H </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> H inc </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> S </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> S inc </label><br>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> L </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> L inc </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> A </label> 
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> A inc </label> <br>
+			
+			
+			<label for="vehicle1"> Border Color: </label> <br>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> H </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> H inc </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> S </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> S inc </label><br>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> L </label>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
+			<label for="vehicle1"> L inc </label>
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> A </label> 
+			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
+			<label for="vehicle2"> A inc </label> <br>
+			
+
+		</div>
+	</div>
+	<div class="DrawingSpace">
+		<h2>Drawing Board</h2>
+		<canvas id="canvas1"></canvas>
+		<button id="ClearCanvas">Clear Canvas</button>
+	</div>
+</div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="shape_script.js"></script>
+
+</body>
+</html>
