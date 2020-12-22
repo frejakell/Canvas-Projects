@@ -135,7 +135,7 @@ input:checked + .slider:before {
 			 
 			 
 			 <br>Border Width - Value:<span id="Border_val">  </span><br> 
-			 <input type="range" id="Width_stroke" min="0" max="300" value="0" ><br>
+			 <input type="range" id="Width_stroke" min="0" max="300" value="0" ><input type="number" name="points" step="0.05" id="border_inc" min="0" max="1" value="1"><br>
 			 
 
 			  
@@ -183,63 +183,63 @@ input:checked + .slider:before {
 		     <input type="checkbox" id="random">
 			 <span class="slider round"></span></label><br>
 			 
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> Scale</label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> Scale increment </label><br>
+			<input type="checkbox" id="scale_cb" name="Scale" value="Scale">
+			<label for="scale"> Scale</label>
+			<input type="checkbox" id="scale_inc_cb" name="ScaleInc" value="Number">
+			<label for="scale_inc"> Scale increment </label><br>
 			
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> Count </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> Count increment </label><br>
+			<input type="checkbox" id="count_cb" name="vehicle1" value="Scale">
+			<label for="Count"> Count </label>
+			<input type="checkbox" id="count_inc_cb" name="vehicle2" value="Number">
+			<label for="count_inc"> Count increment </label><br>
 			
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> Angle </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> Angle increment </label><br>
+			<input type="checkbox" id="angle_cb" name="vehicle1" value="Scale">
+			<label for="angle"> Angle </label>
+			<input type="checkbox" id="angle_inc_cb" name="vehicle2" value="Number">
+			<label for="angle_inc"> Angle increment </label><br>
 			
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> Border width </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> Border width Inc </label><br>
-			
-			
-			<label for="vehicle1"> Fill Color: </label> <br>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> H </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> H inc </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> S </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> S inc </label><br>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> L </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> L inc </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> A </label> 
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> A inc </label> <br>
+			<input type="checkbox" id="border_width_cb" name="vehicle1" value="Scale">
+			<label for="border_width_cb"> Border width </label>
+			<input type="checkbox" id="border_width_inc_cb" name="vehicle2" value="Number">
+			<label for="border_inc_cb"> Border width Inc </label><br>
 			
 			
-			<label for="vehicle1"> Border Color: </label> <br>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> H </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> H inc </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> S </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> S inc </label><br>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> L </label>
-			<input type="checkbox" id="vehicle1" name="vehicle1" value="Scale">
-			<label for="vehicle1"> L inc </label>
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> A </label> 
-			<input type="checkbox" id="vehicle2" name="vehicle2" value="Number">
-			<label for="vehicle2"> A inc </label> <br>
+			<label for="FillColor"> Fill Color: </label> <br>
+			<input type="checkbox" id="fill_h_cb" name="FillH" value="Scale">
+			<label for="fill_h"> H </label>
+			<input type="checkbox" id="fill_h_inc_cb" name="vehicle1" value="Scale">
+			<label for="fill_h_inc"> H inc </label>
+			<input type="checkbox" id="fill_s_cb" name="vehicle1" value="Scale">
+			<label for="fill_s"> S </label>
+			<input type="checkbox" id="fill_s_inc_cb" name="vehicle2" value="Number">
+			<label for="fill_s_inc"> S inc </label><br>
+			<input type="checkbox" id="fill_l_cb" name="FillL" value="Scale">
+			<label for="fill_l"> L </label>
+			<input type="checkbox" id="fill_l_inc_cb" name="vehicle1" value="Scale">
+			<label for="fill_l_inc"> L inc </label>
+			<input type="checkbox" id="fill_trans_cb" name="vehicle2" value="Number">
+			<label for="fill_trans"> A </label> 
+			<input type="checkbox" id="fill_trans_inc_cb" name="vehicle2" value="Number">
+			<label for="fill_trans_inc"> A inc </label> <br>
+			
+			
+			<label for="border_color"> Border Color: </label> <br>
+			<input type="checkbox" id="border_h_cb" name="BorderH" value="Scale">
+			<label for="border_h"> H </label>
+			<input type="checkbox" id="border_h_inc_cb" name="BorderHInc" value="Scale">
+			<label for="border_h_inc"> H inc </label>
+			<input type="checkbox" id="border_s_cb" name="BorderS" value="Scale">
+			<label for="border_s"> S </label>
+			<input type="checkbox" id="border_s_inc_cb" name="BorderSInc" value="Number">
+			<label for="border_s_inc"> S inc </label><br>
+			<input type="checkbox" id="border_l_cb" name="BorderL" value="Scale">
+			<label for="border_l"> L </label>
+			<input type="checkbox" id="border_l_inc_cb" name="BorderLInc" value="Scale">
+			<label for="border_l_inc"> L inc </label>
+			<input type="checkbox" id="border_trans_cb" name="BorderTrans" value="Number">
+			<label for="border_trans"> A </label> 
+			<input type="checkbox" id="border_trans_inc_cb" name="BorderTransInc" value="Number">
+			<label for="border_trans_inc"> A inc </label> <br>
 			
 
 		</div>
