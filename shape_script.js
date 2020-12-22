@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width=window.innerWidth-260;
-canvas.height=window.innerHeight-60;
+canvas.height=window.innerHeight-30;
 ctx.globalCompositeOperation='destination-over';
 let positionX=canvas.width/2;
 let positionY=canvas.height/2;
@@ -18,7 +18,6 @@ var random_check=document.getElementById("random");
 
 var angle_slider = document.getElementById("angle_off");
 var angle_output = document.getElementById("angle_val");
-
 
 
 var scale_inc = document.getElementById("Scale_inc");
@@ -47,6 +46,7 @@ var slider_trans_border= document.getElementById("Trans_border_scale");
 var Trans_border_change = document.getElementById("TransRate");
 var Trans_change = document.getElementById("TransBorderRate");
 
+var Border_width_change=document.getElementById("border_inc")
 
 
 
@@ -62,6 +62,51 @@ var output_HSL_border = document.getElementById("HSL_border_val");
 var Hue_border_change = document.getElementById("HueBorderRate");
 var Sat_border_change = document.getElementById("SatBorderRate");
 var Light_border_change = document.getElementById("LightBorderRate");
+
+
+
+
+var scale_random = document.getElementById("scale_cb");
+var scale_inc_random  = document.getElementById("scale_inc_cb");
+
+var count_random = document.getElementById("count_cb");
+var count_inc_random = document.getElementById("count_inc_cb");
+
+var angle_random = document.getElementById("angle_cb");
+var angle_inc_random  = document.getElementById("angle_inc_cb");
+
+var border_width_random = document.getElementById("border_width_cb");
+var border_width_inc_random = document.getElementById("border_width_inc_cb");
+
+var fill_h_random = document.getElementById("fill_h_cb");
+var fill_h_inc_random  = document.getElementById("fill_h_inc_cb");
+
+var fill_s_random = document.getElementById("fill_s_cb");
+var fill_s_inc_random = document.getElementById("fill_s_inc_cb");
+
+var fill_l_random = document.getElementById("fill_l_cb");
+var fill_l_inc_random = document.getElementById("fill_l_inc_cb");
+
+
+var fill_trans_random = document.getElementById("fill_trans_cb");
+var fill_trans_inc_random = document.getElementById("fill_trans_inc_cb");
+
+
+
+var border_h_random = document.getElementById("border_h_cb");
+var border_h_inc_random  = document.getElementById("border_h_inc_cb");
+
+var border_s_random = document.getElementById("border_s_cb");
+var border_s_inc_random = document.getElementById("border_s_inc_cb");
+
+var border_l_random = document.getElementById("border_l_cb");
+var border_l_inc_random = document.getElementById("border_l_inc_cb");
+
+
+var border_trans_random = document.getElementById("border_trans_cb");
+var border_trans_inc_random = document.getElementById("border_trans_inc_cb");
+
+
 
 output.innerHTML = slider.value;
 output_number.innerHTML = slider_number.value;
@@ -130,11 +175,123 @@ canvas.addEventListener('click', function(event) {
     console.log("x: " + x + " y: " + y); 
 	var random = document.getElementById("random");
     if (random.checked) {
-       scale_inc.value=Math.random()*5;
+	   setRandoms();
+       
     }
 	animate()
 }, false);
 
+
+function setRandoms(){
+	if (scale_random.checked){
+		slider.value=Math.random()*300;
+		output.innerHTML=slider.value;
+	}
+	if (scale_inc_random.checked){
+		scale_inc.value=Math.random()*4-2;
+		//output_number.innerHTML=slider.value;
+	} 
+
+	if (count_random.checked){
+		slider_number.value=Math.random()*300;
+		output_number.innerHTML=slider_number.value;
+	}
+	if (count_inc_random.checked){
+		number_inc_val.value=Math.random()*5;
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (angle_random.checked){
+		angle_slider.value=Math.random()*3600;
+		//output_number.innerHTML=slider.value;
+	}
+	
+    if (border_width_random.checked){
+		border_slider.value=Math.random()*100;
+		//output_number.innerHTML=slider_number.value;
+	}
+	
+	if(border_width_inc_random.checked){
+		Border_width_change.value=Math.random();
+		
+	}
+	
+	if (fill_h_random.checked){
+		slider_hue.value=Math.random()*200;
+		output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_s_random.checked){
+		slider_sat.value=Math.random()*100;
+		output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_l_random.checked){
+		slider_light.value=Math.random()*100;
+		output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_h_inc_random.checked){
+		Hue_change.value=Math.random()*2-1;
+		//output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_s_inc_random.checked){
+		Sat_change.value=Math.random()*2-1;
+		//output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_l_inc_random.checked){
+		Light_change.value=Math.random()*2-1;
+		//output_HSL.innerHTML = 'hsl('+slider_hue.value+','+ slider_sat.value +'%,' +slider_light.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (fill_trans_random.checked){
+		slider_trans.value=Math.random()*100;
+		
+	}
+	
+	
+	if (border_h_random.checked){
+		slider_hue_border.value=Math.random()*200;
+		output_HSL_border.innerHTML = 'hsl('+slider_hue_border.value+','+ slider_sat_border.value +'%,' +slider_light_border.value+'%)';
+	}
+	
+	if (border_s_random.checked){
+		slider_sat_border.value=Math.random()*100;
+		output_HSL_border.innerHTML = 'hsl('+slider_hue_border.value+','+ slider_sat_border.value +'%,' +slider_light_border.value+'%)';
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (border_l_random.checked){
+		slider_light_border.value=Math.random()*100;
+		output_HSL_border.innerHTML = 'hsl('+slider_hue_border.value+','+ slider_sat_border.value +'%,' +slider_light_border.value+'%)';
+		//output_number.innerHTML=slider.value;
+	
+	}
+	
+	if (border_h_inc_random.checked){
+		Hue_border_change.value=Math.random()*2-1;
+		
+	}
+	
+	if (border_s_inc_random.checked){
+		Sat_border_change.value=Math.random()*2-1;
+		//output_number.innerHTML=slider.value;
+	}
+	
+	if (border_l_inc_random.checked){
+		Light_border_change.value=Math.random()*2-1;
+		
+		//output_number.innerHTML=slider.value;
+	}
+}
 function ClearFunc(){
 	console.log("pushed")
 	ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -278,6 +435,7 @@ function animate(){
 		angle += angle_offset;
 		console.log(draw_color_border);
 	    scale += scale_inc_val;
+		strokeWidth+= parseFloat(Border_width_change.value)//Trans_border_change;
 		hue_border += parseFloat(Hue_border_change.value);
 		sat_border += parseFloat(Sat_border_change.value);
 		light_border += parseFloat(Light_border_change.value);
