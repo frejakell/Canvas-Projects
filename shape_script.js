@@ -203,6 +203,7 @@ function setRandoms(){
 	
 	if (angle_random.checked){
 		angle_slider.value=Math.random()*3600;
+		angle_output.innerHTML = angle_slider.value;
 		//output_number.innerHTML=slider.value;
 	}
 	
